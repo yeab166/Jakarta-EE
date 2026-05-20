@@ -5,9 +5,9 @@ import java.sql.DriverManager;
 
 public class DBConnection {
 
-    private static final String URL = "jdbc:mysql://localhost:3307/attendance_db";
-    private static final String USER = "root";
-    private static final String PASSWORD = "";
+    private static final String URL = "jdbc:mysql://sql7.freesqldatabase.com:3306/sql7827592";
+    private static final String USER = "sql7827592";
+    private static final String PASSWORD = "QMwKh3ZqLb";
 
     public static Connection getConnection() throws Exception {
         Class.forName("com.mysql.cj.jdbc.Driver");
