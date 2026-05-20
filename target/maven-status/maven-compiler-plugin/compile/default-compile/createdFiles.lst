@@ -1,0 +1,7 @@
+com\attendance\model\Session.class
+com\attendance\model\Student.class
+com\attendance\servlet\MarkAttendanceServlet.class
+com\attendance\dao\AttendanceDAO.class
+com\attendance\servlet\CreateSessionServlet.class
+com\attendance\config\DBConnection.class
+com\attendance\servlet\ViewAttendanceServlet.class

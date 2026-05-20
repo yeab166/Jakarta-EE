@@ -1,0 +1,51 @@
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         version="5.0">
+
+    <!-- Create Session -->
+    <servlet>
+        <servlet-name>CreateSessionServlet</servlet-name>
+        <servlet-class>com.attendance.servlet.CreateSessionServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CreateSessionServlet</servlet-name>
+        <url-pattern>/CreateSessionServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateSessionServlet</servlet-name>
+        <url-pattern>/create</url-pattern>
+    </servlet-mapping>
+
+    <!-- Mark Attendance -->
+    <servlet>
+        <servlet-name>MarkAttendanceServlet</servlet-name>
+        <servlet-class>com.attendance.servlet.MarkAttendanceServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>MarkAttendanceServlet</servlet-name>
+        <url-pattern>/MarkAttendanceServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>MarkAttendanceServlet</servlet-name>
+        <url-pattern>/mark</url-pattern>
+    </servlet-mapping>
+
+    <!-- View Attendance -->
+    <servlet>
+        <servlet-name>ViewAttendanceServlet</servlet-name>
+        <servlet-class>com.attendance.servlet.ViewAttendanceServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ViewAttendanceServlet</servlet-name>
+        <url-pattern>/ViewAttendanceServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ViewAttendanceServlet</servlet-name>
+        <url-pattern>/view</url-pattern>
+    </servlet-mapping>
+
+</web-app>

@@ -1,0 +1,63 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "maven: package",
+      "type": "shell",
+      "command": "mvn",
+      "args": ["clean", "package"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": [],
+      "group": { "kind": "build", "isDefault": true }
+    },
+    {
+      "label": "deploy: copy WAR to Tomcat",
+      "type": "shell",
+      "command": "powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}\\.vscode\\deploy.ps1"
+      ],
+      "options": { "cwd": "${workspaceFolder}" },
+      "dependsOn": ["maven: package"],
+      "problemMatcher": []
+    },
+    {
+      "label": "tomcat: start",
+      "type": "shell",
+      "command": "cmd.exe",
+      "args": [
+        "/c",
+        "\"C:\\Users\\YEABSIRA BELETE\\Downloads\\apache-tomcat-10.1.55-windows-x64\\apache-tomcat-10.1.55\\bin\\startup.bat\" && cmd /k echo Tomcat started. Keep this window open."
+      ],
+      "isBackground": true,
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true
+      }
+    },
+    {
+      "label": "tomcat: stop",
+      "type": "shell",
+      "command": "cmd.exe",
+      "args": [
+        "/c",
+        "start",
+        "\"\"",
+        "\"C:\\Users\\YEABSIRA BELETE\\Downloads\\apache-tomcat-10.1.55-windows-x64\\apache-tomcat-10.1.55\\bin\\shutdown.bat\""
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "build-deploy-start",
+      "dependsOn": ["deploy: copy WAR to Tomcat", "tomcat: start"],
+      "dependsOrder": "sequence",
+      "problemMatcher": []
+    }
+  ]
+}
