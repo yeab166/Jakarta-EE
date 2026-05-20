@@ -3,14 +3,29 @@ package com.attendance.config;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+import io.github.cdimascio.dotenv.Dotenv;
+
 public class DBConnection {
 
-    private static final String URL = "jdbc:mysql://sql7.freesqldatabase.com:3306/sql7827592";
-    private static final String USER = "sql7827592";
-    private static final String PASSWORD = "QMwKh3ZqLb";
+    private static final Dotenv dotenv = Dotenv.load();
+
+    private static final String URL =
+            dotenv.get("DB_URL");
+
+    private static final String USER =
+            dotenv.get("DB_USER");
+
+    private static final String PASSWORD =
+            dotenv.get("DB_PASSWORD");
 
     public static Connection getConnection() throws Exception {
+
         Class.forName("com.mysql.cj.jdbc.Driver");
-        return DriverManager.getConnection(URL, USER, PASSWORD);
+
+        return DriverManager.getConnection(
+                URL,
+                USER,
+                PASSWORD
+        );
     }
 }
